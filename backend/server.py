@@ -80,7 +80,7 @@ def startGame(arg):
     while chess_logic.getOutcome(mycertabo.chessboard) is None:
         if not chess_logic.game_status:
             break
-        if mycertabo.color == mycertabo.stockfish_color:
+        if mycertabo.color == mycertabo.stockfish_color || arg[selfplay] == true:
             move = handleStockfishMove()
         else:
             move = mycertabo.get_user_move()
