@@ -33,6 +33,7 @@ export default function Game(props: gameProps) {
   const [player, setPlayer] = useState<string>();
   const [not_valid, setNotValid] = useState<boolean>(false);
   const [relativeScore, setRelativeScore] = useState<number>(0);
+  const [selfplay, setSelfplay] = useState<boolean>(false);
 
   const [rotation, setRotation] = useState<"white" | "black">("white");
 
@@ -93,6 +94,7 @@ export default function Game(props: gameProps) {
         skill_level: stockfishlevel,
         color: color,
         name: player,
+        selfplay: selfplay,
       };
       props.socket.emit("start-game", preferences);
       setGameState(GameState.inProgress);
